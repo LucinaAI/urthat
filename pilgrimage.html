@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Pilgrimage · Yaron Etzion</title>
+<meta name="description" content="A solo walk along the Ganga from Rishikesh to Varanasi, dedicated to everyone standing at a crossroads where something ends and something new is born. Follow the journey and send a question for the road.">
+<link rel="canonical" href="https://urthat.org/pilgrimage.html">
+<meta property="og:title" content="The Pilgrimage · Rishikesh to Varanasi">
+<meta property="og:description" content="A solo walk along the Ganga, dedicated to those in life's transitions. Follow the journey and send a question for the road.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://urthat.org/pilgrimage.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Heebo:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0f131d; --ground-2:#171b26; --panel:#1c1f2a; --panel-2:#262a35; --panel-3:#313540;
+  --ivory:#eef1fb; --ivory-dim:#c9cede; --slate:#9aa2bd;
+  --accent:#e5a958; --accent-soft:#ffc67b; --accent-deep:#b97d22;
+  --line:rgba(233,225,210,.10); --line-2:rgba(233,225,210,.18);
+  --shadow:0 24px 60px -30px rgba(0,0,0,.7);
+  --serif:"Fraunces",Georgia,serif; --sans:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  --he-sans:"Heebo",-apple-system,sans-serif; --he-serif:"Frank Ruhl Libre",Georgia,serif;
+  --maxw:1080px; --readw:720px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ground);color:var(--ivory);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.14;text-wrap:balance}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(15,19,29,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
+.brand{display:flex;align-items:center;gap:.5rem;font-family:var(--serif);font-size:1.15rem;white-space:nowrap}
+.brand .mk{width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);flex:none}
+.nav-links{display:flex;gap:1.3rem;flex-wrap:wrap;justify-content:center}
+.nav-links a{font-size:.9rem;color:var(--ivory-dim);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.btn{display:inline-block;border-radius:999px;font-weight:600;letter-spacing:.01em;transition:transform .15s,box-shadow .2s,border-color .2s;cursor:pointer}
+.btn-primary{background:linear-gradient(135deg,var(--accent-soft),var(--accent-deep));color:#231a08;padding:.55rem 1.1rem;font-size:.82rem;border:none}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line-2);color:var(--ivory);padding:.8rem 1.5rem;background:transparent}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:640px){.nav-links{gap:.9rem}.nav-inner{height:auto;padding:.6rem 0;flex-wrap:wrap}.nav .btn-primary{display:none}}
+/* hero */
+.hero{padding:4.5rem 0 2.5rem;text-align:center;position:relative}
+.hero .kicker{color:var(--accent);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase}
+.hero h1{font-size:clamp(2.4rem,7vw,4rem);margin:.7rem 0 .2rem}
+.hero .he-title{font-family:var(--he-serif);font-size:clamp(1.6rem,5vw,2.4rem);color:var(--ivory-dim);direction:rtl}
+.hero .lede{max-width:640px;margin:1.4rem auto 0;color:var(--ivory-dim);font-size:1.05rem}
+.hero .lede.he{direction:rtl;font-family:var(--he-sans);margin-top:1rem;color:var(--slate)}
+.hero .map-line{margin:1.8rem auto 0;max-width:560px;display:flex;align-items:center;justify-content:center;gap:.6rem;color:var(--slate);font-size:.9rem}
+.hero .map-line .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.hero .map-line .track{flex:1;height:1px;background:linear-gradient(90deg,var(--accent),var(--line-2))}
+/* section */
+.sec{padding:2.2rem 0}
+.rule{max-width:var(--readw);margin:0 auto;border:0;border-top:1px solid var(--line)}
+.article{max-width:var(--readw);margin:0 auto}
+.article .eyebrow{color:var(--accent);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+.article h2{font-size:clamp(1.9rem,5vw,2.7rem);text-align:center;margin:.6rem 0 .3rem}
+.article .he-h{font-family:var(--he-serif);font-size:clamp(1.5rem,4.5vw,2rem);text-align:center;color:var(--ivory-dim);direction:rtl;margin-bottom:2rem}
+.body p{margin:0 0 1.3rem;font-size:1.12rem;color:#dde1ee}
+.body p:first-of-type{font-size:1.2rem;color:var(--ivory)}
+.lang-label{display:block;text-align:center;color:var(--slate);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;margin:0 0 1.4rem}
+.he{direction:rtl;text-align:right;font-family:var(--he-sans)}
+.he p{font-size:1.14rem}
+.he-divider{max-width:var(--readw);margin:2.6rem auto;display:flex;align-items:center;gap:1rem;color:var(--slate)}
+.he-divider::before,.he-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.he-divider span{font-size:.8rem;letter-spacing:.1em}
+/* from the road */
+.road{max-width:var(--readw);margin:0 auto;text-align:center}
+.road h2{font-size:clamp(1.6rem,4.5vw,2.1rem)}
+.road .he-h{font-family:var(--he-serif);color:var(--ivory-dim);direction:rtl;font-size:1.3rem;margin-top:.2rem}
+.road .note{margin-top:1rem;color:var(--ivory-dim)}
+.road .note.he{direction:rtl;font-family:var(--he-sans);color:var(--slate);margin-top:.4rem}
+.road .soon{display:inline-block;margin-top:1.4rem;border:1px dashed var(--line-2);border-radius:14px;padding:1.4rem 1.6rem;color:var(--slate);font-size:.95rem}
+/* form */
+.form-card{max-width:var(--readw);margin:0 auto;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:20px;padding:2.4rem;box-shadow:var(--shadow)}
+.form-card h2{font-size:clamp(1.7rem,4.5vw,2.3rem);text-align:center}
+.form-card .he-h{font-family:var(--he-serif);color:var(--ivory-dim);direction:rtl;text-align:center;font-size:1.3rem;margin-top:.2rem}
+.form-card .sub{text-align:center;color:var(--ivory-dim);margin:1rem auto 0;max-width:460px;font-size:.98rem}
+.form-card .sub.he{direction:rtl;font-family:var(--he-sans);color:var(--slate);margin-top:.5rem}
+form.ask{margin-top:1.8rem;display:grid;gap:1rem}
+.field label{display:block;font-size:.82rem;color:var(--slate);margin-bottom:.4rem}
+.field label .he{color:var(--slate);font-family:var(--he-sans)}
+.field input,.field textarea{width:100%;background:var(--ground-2);border:1px solid var(--line-2);border-radius:12px;color:var(--ivory);font:inherit;font-size:1rem;padding:.8rem .9rem}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.ask .submit{justify-self:center;margin-top:.4rem}
+.ask .submit button{font-size:.95rem;padding:.8rem 2rem}
+.form-msg{text-align:center;margin-top:1rem;font-size:.95rem}
+.form-msg.ok{color:var(--accent-soft)}
+.form-msg.err{color:#ff9a8a}
+/* comments */
+.comments{max-width:var(--readw);margin:0 auto}
+.comments h2{font-size:clamp(1.5rem,4vw,2rem);text-align:center}
+.comments .he-h{font-family:var(--he-serif);color:var(--ivory-dim);direction:rtl;text-align:center;font-size:1.2rem;margin-top:.1rem;margin-bottom:1.6rem}
+#cusdis_thread{margin-top:1.4rem}
+.comments-soon{text-align:center;color:var(--slate);border:1px dashed var(--line-2);border-radius:14px;padding:1.6rem;margin-top:1rem}
+/* footer */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.foot{border-top:1px solid var(--line);padding:2.6rem 0;text-align:center;margin-top:2rem}
+.foot-note{color:var(--slate);font-size:.85rem}
+.foot-note a{color:var(--ivory-dim)}
+.foot-note a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-inner">
+  <a class="brand" href="index.html#top"><span class="mk"></span> You Are That</a>
+  <nav class="nav-links">
+    <a href="index.html#teachings">Teachings</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="index.html#books">Books</a>
+    <a href="blog.html">Journal</a>
+    <a class="active" href="pilgrimage.html">Pilgrimage</a>
+    <a href="index.html#connect">Connect</a>
+  </nav>
+  <a class="btn btn-primary" href="#ask">Ask a question</a>
+</div></header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero"><div class="wrap">
+    <div class="kicker">A pilgrimage on foot · departing December 2026</div>
+    <h1>Rishikesh to Varanasi</h1>
+    <div class="he-title" lang="he" dir="rtl">מרישיקש לוורנאסי</div>
+    <p class="lede">A solo walk, close to 1,000 km along the Ganga. No planned route, no end date. Dedicated to everyone standing at a crossroads where something ends and something new is born.</p>
+    <p class="lede he" lang="he" dir="rtl">הליכה לבד, קרוב לאלף קילומטר לאורך נהר הגנגס. בלי מסלול מתוכנן, בלי מועד סיום. מוקדש לכל מי שעומד בצומת שבה משהו מסתיים ומשהו חדש נולד.</p>
+    <div class="map-line"><span class="dot" aria-hidden="true"></span><span>Rishikesh</span><span class="track" aria-hidden="true"></span><span>Varanasi</span><span class="dot" aria-hidden="true"></span></div>
+  </div></section>
+
+  <hr class="rule">
+
+  <!-- INVITATION ESSAY -->
+  <section class="sec"><div class="wrap">
+    <article class="article">
+      <div class="eyebrow">The invitation · Entry one</div>
+      <h2>What Would You Be Without It?</h2>
+      <div class="he-h" lang="he" dir="rtl">מה היית בלי זה?</div>
+
+      <span class="lang-label">English</span>
+      <div class="body">
+        <p>From a young age, this question has walked with me and with my own development: "What would you be without it?" Fairly early on, I understood that we build an identity for ourselves around the events and happenings of our lives. "I am a professional." "I am a family man." "I am a product of my homeland." "I am a victim of circumstance." And so on. Inside a relative identity like this, me against the circumstances, a dependency hides, and the question of what I would be without that identity always intrigued me.</p>
+        <p>A self-identity built on my relational connection to experience is bound, in the end, to be shaken. We know this, yet we try to ignore it or forget it, and we channel our energy into fortifying the support around which our identity is built, the one that gives us an illusion of stability and safety. But inevitably, that support will be shaken, will crack, will fall apart. Life, after all, is stronger than everything, and always changing, and the point in time at which the structure we built collapses is always just beyond the near horizon.</p>
+        <p>I have experienced this personally several times along my way. I had to reinvent myself when I left Israel to live in the Canadian Midwest. I had to reinvent myself when I realized that the path that had been paved for me, as an air force officer and as an engineer, did not fit my innermost truth. I had to reinvent myself when my children left home as teenagers, one to study in western Canada and the other to play soccer in Spain, which left me with the question: what does parenting mean now...?</p>
+        <p>Events like these can feel threatening, but they can also be an astonishing opportunity for inner change. The journey I am setting out on, I dedicate to people standing at such a crossroads, where something collapses and something new, something different, is born.</p>
+        <p>When I was thirty, I learned about a tradition that was practiced in India. According to that tradition, a person who reaches the age of sixty and hears the call can choose to set out on a spiritual search. The society around him gives him legitimacy to do so, and releases him from his obligations as a family man and a provider. They even have a name for it: Sadhu (साधु), a person who has chosen to withdraw, to a large degree, from ordinary material and social life, and to devote his life to a spiritual path. That possibility always fascinated me. Now I am sixty, standing at this crossroads in my life, and I choose to answer the call.</p>
+        <p>The plan is deliberately and intentionally vague. I know where it begins and where it is meant to end, but I do not know what will happen between those two points. The starting point will be at the foot of the Himalayas, in northern India, in a holy city called Rishikesh. From there I will set out on foot, alone, close to a thousand kilometers along the Ganga to the city of Varanasi. With no planned route, no end date, and without knowing how many weeks it will take. For someone who was an officer and also a CEO, people whose whole lives are built on planning and control, this walk is itself the practice: learning to let go of the wheel.</p>
+        <p>When people ask me why there, of all places, I have no good answer. I am not following in anyone's footsteps, and I do not even know whether there is a paved way to walk between those two points. And I intentionally do not try to look into it. Part of the experience I am giving myself is the surrender to the unknown, to the mystery, which will reveal itself on its own over the days and weeks in which I walk the road.</p>
+        <p>A pilgrimage is, in many traditions, a journey of purification. As a secular person, the idea of surrendering to the walking, to the changing landscape, to the hardships and the experiences along the way, always appealed to me. I do not know what awaits me. Maybe aching knees and a sense of futility. Maybe a silence I have never known. I am setting out precisely because I do not know. If there is an age at which one is finally allowed to walk without knowing exactly where to, maybe this is that age.</p>
+        <p>Twenty-year-olds go to India to discover who they are about to become. I am going to discover what can be set down. It is the same great trip, in the opposite direction.</p>
+        <p>This journey I am not making for myself alone. I dedicate it to everyone standing at those same points of passage: retirement, loss, an emptied home, an aging parent, all those endings and beginnings that have no ceremony and that we hardly ever speak about. Weddings and births we celebrate, but a person can lose, all at once, the roles that defined him, and stand before the eternal question: who am I without it?</p>
+        <p>I want to open this experience to anyone who would like to use it as a source of inspiration for surrendering to the mystery that reveals itself at the point in time when everything falls apart. You will be able to take part actively, simply by leaving your question on my site, URTHAT.org. I promise to reflect on these questions during the journey, and to share the experience with you.</p>
+        <p>And may we have a good journey...</p>
+      </div>
+
+      <div class="he-divider"><span lang="he">עברית</span></div>
+
+      <div class="body he" lang="he" dir="rtl">
+        <p>מגיל צעיר ליוותה אותי ואת ההתפתחות שלי השאלה הזאת- "מה היית בלי זה?". די מוקדם הבנתי שאנחנו בונים לעצמנו זהות סביב אירועים והתרחשויות שקורים לנו בחיים. "אני איש מקצוע", "אני איש משפחה", "אני תבנית נוף מולדתי", "אני קורבן של הנסיבות", וכן הלאה. בתוך זהות יחסית כזאת- אני אל מול הנסיבות, מסתתרת תלות, והשאלה מה הייתי בלי הזהות הזאת תמיד סקרנה אותי.</p>
+        <p>זהות עצמית שמבוססת על הקשר היחסי שלי עם ההתנסות, סופה להתערער. אנחנו יודעים את זה, אבל מנסים להתעלם או לשכוח, ומפנים את האנרגיה שלנו לביצור המשענת שסביבה בנויה הזהות שלנו, זו שמספקת לנו אשליה של יציבות וביטחון. אבל באופן בלתי נמנע, סופה של המשענת הזו להתערער, להיסדק, להתפרק. החיים הרי חזקים מהכול, ומשתנים תמיד, והנקודה בזמן שבה המבנה שבנינו קורס נמצאת תמיד מעבר לאופק הקרוב.</p>
+        <p>חוויתי זאת באופן אישי מספר פעמים בדרכי. הייתי צריך להמציא את עצמי מחדש כשעזבתי את ישראל כדי לחיות במערב התיכון של קנדה. הייתי צריך להמציא את עצמי מחדש כשקלטתי שהדרך שנסללה לי, כקצין בחיל האוויר וכמהנדס, לא התאימה לאמת הפנימית ביותר שלי. הייתי צריך להמציא את עצמי מחדש כשילדיי עזבו את הבית כנערים, אחד כדי ללמוד במערב קנדה והשני כדי לשחק כדורגל בספרד, מה שהותיר אותי עם השאלה: מה המשמעות של הורות עכשיו...?</p>
+        <p>אירועים כאלה יכולים לאיים, אבל הם גם יכולים להיות הזדמנות מדהימה לשינוי פנימי. את המסע שאני יוצא אליו אני מקדיש לאנשים שנמצאים בצומת כזו, שבה משהו מתמוטט ומשהו חדש, אחר, נולד.</p>
+        <p>כשהייתי בן שלושים למדתי על מסורת שהייתה נהוגה בהודו. לפי אותה מסורת, אדם שמגיע לגיל שישים ושומע את הקריאה, יכול לבחור לצאת למסע חיפוש רוחני. החברה סביבו נותנת לו לגיטימציה לעשות זאת, ופוטרת אותו ממחויבויותיו כאיש משפחה וכמפרנס. יש להם אפילו שם לזה- סאדו (Sadhu / साधु) אדם שבחר לפרוש במידה רבה מהחיים החומריים והחברתיים הרגילים, ולהקדיש את חייו לדרך רוחנית. האפשרות הזאת תמיד הקסימה אותי. עכשיו אני בן שישים, נמצא בצומת הזו בחיי, ובוחר להיענות לקריאה.</p>
+        <p>התוכנית מעורפלת באופן מודע ומכוון. אני יודע איפה היא מתחילה ואיפה היא אמורה להסתיים, אבל איני יודע מה עומד לקרות בין שתי הנקודות האלה. נקודת הפתיחה תהיה למרגלות ההימלאיה, בצפון הודו, בעיר קדושה ששמה רישיקש. משם אצא ברגל, לבד, קרוב לאלף קילומטר לאורך נהר הגנגס עד העיר ורנאסי. בלי מסלול מתוכנן, בלי מועד סיום, ובלי לדעת כמה שבועות זה ייקח. בשביל מי שהיה קצין וגם מנכ"ל, אנשים שכל חייהם מבוססים על תכנון ושליטה, ההליכה הזו היא בעצמה התרגול: ללמוד להרפות מן ההגה.</p>
+        <p>כששואלים אותי למה דווקא שם, אין לי תשובה טובה. אני לא הולך בעקבות איש, ואיני יודע אפילו אם יש דרך סלולה ללכת בה בין שתי הנקודות הללו. ובכוונה איני מנסה לחקור את העניין. חלק מהחוויה שאני מעניק לעצמי הוא ההתמסרות ללא נודע, אל המסתורין, שילך ויתגלה מעצמו לאורך הימים והשבועות שבהם אצעד בדרך.</p>
+        <p>עלייה לרגל היא, במסורות רבות, מסע של הזדככות. כאדם חילוני, הרעיון להתמסר להליכה, לנוף המשתנה, לקשיים ולהתנסויות שלאורך הדרך, תמיד קסם לי. אני לא יודע מה מחכה לי. אולי ברכיים כואבות ותחושת חוסר תועלת. אולי שקט שלא הכרתי. אני יוצא דווקא משום שאינני יודע. אם יש גיל שבו מותר, סוף סוף, ללכת בלי לדעת בדיוק לאן, אולי זה הגיל הזה.</p>
+        <p>בני העשרים יוצאים להודו כדי לגלות מי הם עומדים להיות. אני יוצא כדי לגלות מה אפשר להניח. זה אותו טיול גדול, בכיוון ההפוך.</p>
+        <p>את המסע הזה אינני עושה רק לעצמי. אני מקדיש אותו לכל מי שעומד באותן נקודות מעבר: פרישה, אובדן, בית שהתרוקן, הורה שמזדקן, כל אותם סופים והתחלות שאין להם טקס ושכמעט לא מדברים עליהם. חתונות ולידות אנחנו חוגגים, אבל אדם יכול לאבד בבת אחת את התפקידים שהגדירו אותו, ולעמוד מול השאלה הנצחית- מי אני בלי זה?</p>
+        <p>אני מבקש לפתוח את החוויה הזו לכל מי שירצה להשתמש בה כמקור השראה להתמסרות אל המסתורין המתגלה בנקודה בזמן בה הכל מתפרק. אפשר יהיה להשתתף באופן פעיל, פשוט על ידי הנחת שאלה שלכם באתר שלי URTHAT.org. אני מבטיח להתייחס לשאלות האלה תוך כדי המסע, ולשתף אתכם בהתנסות.</p>
+        <p>ושיהיה לנו בהצלחה…</p>
+      </div>
+    </article>
+  </div></section>
+
+  <hr class="rule">
+
+  <!-- FROM THE ROAD -->
+  <section class="sec"><div class="wrap">
+    <div class="road">
+      <h2>From the road</h2>
+      <div class="he-h" lang="he" dir="rtl">מהדרך</div>
+      <p class="note">New entries, photos, and short videos will appear here as I walk, whenever I have signal. Follow along.</p>
+      <p class="note he" lang="he" dir="rtl">רשומות חדשות, תמונות וסרטונים קצרים יופיעו כאן תוך כדי ההליכה, בכל פעם שתהיה לי קליטה. הצטרפו למסע.</p>
+      <span class="soon">The walk begins at the end of December 2026 · ההליכה יוצאת לדרך בסוף דצמבר 2026</span>
+    </div>
+  </div></section>
+
+  <hr class="rule">
+
+  <!-- ASK -->
+  <section class="sec" id="ask"><div class="wrap">
+    <div class="form-card">
+      <h2>Ask a question for the road</h2>
+      <div class="he-h" lang="he" dir="rtl">הניחו שאלה לדרך</div>
+      <p class="sub">Leave a question or a few words. I will carry it with me and reflect on it from the road, and share what comes.</p>
+      <p class="sub he" lang="he" dir="rtl">השאירו שאלה או כמה מילים. אשא אותן איתי, אתייחס אליהן מהדרך ואשתף במה שעולה.</p>
+      <form class="ask" id="askForm">
+        <div class="field">
+          <label for="qname">Your name <span class="he" lang="he">· השם שלכם</span></label>
+          <input id="qname" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="qemail">Email (optional, so I can reply) <span class="he" lang="he">· אימייל (לא חובה)</span></label>
+          <input id="qemail" name="email" type="email" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="qtext">Your question <span class="he" lang="he">· השאלה שלכם</span></label>
+          <textarea id="qtext" name="question" required></textarea>
+        </div>
+        <div class="submit"><button class="btn btn-primary" type="submit" id="qbtn">Send · שליחה</button></div>
+      </form>
+      <div class="form-msg" id="formMsg" role="status" aria-live="polite" hidden></div>
+    </div>
+  </div></section>
+
+  <hr class="rule">
+
+  <!-- COMMENTS -->
+  <section class="sec"><div class="wrap">
+    <div class="comments">
+      <h2>Walk with me, leave a word</h2>
+      <div class="he-h" lang="he" dir="rtl">הצטרפו לשיחה, השאירו מילה</div>
+      <div id="comments-mount"></div>
+      <div class="comments-soon" id="commentsSoon">Public comments open here shortly. · מרחב התגובות הציבורי ייפתח כאן בקרוב.</div>
+    </div>
+  </div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="foot-note">Inspired by the teachings of Sri Sri Ravi Shankar. <a href="index.html#top">Home</a> · <a href="blog.html">Journal</a> · <a href="pilgrimage.html">Pilgrimage</a> · © 1999 Yaron Etzion</div>
+</div></footer>
+
+<script>
+/* ---- Ask a question form (FormSubmit AJAX to hello@urthat.org) ---- */
+(function(){
+  var f=document.getElementById('askForm'), msg=document.getElementById('formMsg'), btn=document.getElementById('qbtn');
+  if(!f) return;
+  var endpoint="https://formsubmit.co/ajax/"+["hello","urthat.org"].join("@");
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name=f.name.value.trim(), email=f.email.value.trim(), question=f.question.value.trim();
+    if(!name || !question) return;
+    btn.disabled=true; btn.textContent="Sending…";
+    fetch(endpoint,{method:"POST",headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({name:name,email:email,question:question,_subject:"Pilgrimage question for the road",_template:"table"})})
+    .then(function(r){return r.json();})
+    .then(function(){
+      f.hidden=true;
+      msg.hidden=false; msg.className="form-msg ok";
+      msg.innerHTML="Thank you. Your question is with me now, and I will carry it on the road.<br><span style=\"direction:rtl;display:inline-block;font-family:var(--he-sans)\">תודה. שאלתכם איתי, ואשא אותה בדרך.</span>";
+    })
+    .catch(function(){
+      msg.hidden=false; msg.className="form-msg err";
+      msg.textContent="Something went wrong sending that. Please try again, or email hello@urthat.org.";
+      btn.disabled=false; btn.textContent="Send · שליחה";
+    });
+  });
+})();
+
+/* ---- Public comments (Cusdis). Set CUSDIS_APP_ID once to activate. ---- */
+(function(){
+  var CUSDIS_APP_ID=""; /* paste the Cusdis App ID here to turn comments on */
+  var mount=document.getElementById('comments-mount'), soon=document.getElementById('commentsSoon');
+  if(!CUSDIS_APP_ID){ return; } /* keep the friendly 'opening soon' note until activated */
+  soon.hidden=true;
+  var d=document.createElement('div');
+  d.id="cusdis_thread";
+  d.setAttribute('data-host','https://cusdis.com');
+  d.setAttribute('data-app-id',CUSDIS_APP_ID);
+  d.setAttribute('data-page-id','pilgrimage-invitation');
+  d.setAttribute('data-page-url','https://urthat.org/pilgrimage.html');
+  d.setAttribute('data-page-title','The Pilgrimage');
+  mount.appendChild(d);
+  var s=document.createElement('script');
+  s.async=true; s.defer=true; s.src="https://cusdis.com/js/cusdis.es.js";
+  document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>
