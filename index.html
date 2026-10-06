@@ -202,9 +202,12 @@
   .unmute-btn span{font-size:1.05rem;line-height:1}
   .unmute-btn:hover{filter:brightness(1.06)}
   @keyframes pulseBtn{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.05)}}
+
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#231a08;padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:100;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Skip to content</a>
 
 <!-- SATSANG BAR -->
 <div class="satsang"><div class="wrap">
@@ -216,7 +219,7 @@
 <!-- NAV -->
 <header class="nav"><div class="wrap nav-inner">
   <a class="brand" href="#top"><span class="mk"></span> You Are That</a>
-  <nav class="nav-links">
+  <nav class="nav-links" aria-label="Primary">
     <a href="#teachings">Teachings</a>
     <a href="#courses">Courses</a>
     <a href="#about">About</a>
@@ -430,7 +433,7 @@
     <a href="https://www.linkedin.com/in/yaron-etzion-3392832a/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3v10zM6.5 7.7a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19 19h-3v-5.3c0-1.3-.5-2.1-1.6-2.1-.9 0-1.4.6-1.6 1.2-.1.2-.1.5-.1.8V19h-3V9h3v1.3a3 3 0 0 1 2.7-1.5c2 0 3.2 1.3 3.2 4V19z"/></svg></a>
     <a href="https://chat.whatsapp.com/KXsphKgdwTB2BTuCeAzHJq" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2.2-1.6-.3-.4-.6-.8-.9-1.3-.1-.2 0-.3.1-.4l.4-.4c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1z"/></svg></a>
   </div>
-  <div class="foot-note">Inspired by the teachings of Sri Sri Ravi Shankar. <a href="blog.html">Journal</a> · © 1999 Yaron Etzion</div>
+  <div class="foot-note">Inspired by the teachings of Sri Sri Ravi Shankar. <a href="blog.html">Journal</a> · <a href="pilgrimage.html">Pilgrimage</a> · <a href="privacy.html">Privacy</a> · © 1999 Yaron Etzion</div>
 </div></footer>
 
 <!-- MODAL -->

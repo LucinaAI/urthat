@@ -106,12 +106,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .foot-note{color:var(--slate);font-size:.85rem}
 .foot-note a{color:var(--ivory-dim)}
 .foot-note a:hover{color:var(--accent)}
+
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#231a08;padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:100;font-weight:700}.skip-link:focus{left:0}@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="nav"><div class="wrap nav-inner">
   <a class="brand" href="index.html#top"><span class="mk"></span> You Are That</a>
-  <nav class="nav-links">
+  <nav class="nav-links" aria-label="Primary">
     <a href="index.html#teachings">Teachings</a>
     <a href="index.html#courses">Courses</a>
     <a href="index.html#books">Books</a>
@@ -122,7 +125,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   <a class="btn btn-primary" href="#ask">Ask a question</a>
 </div></header>
 
-<main>
+<main id="main">
   <!-- HERO -->
   <section class="hero"><div class="wrap">
     <div class="kicker">A pilgrimage on foot · departing December 2026</div>
@@ -232,7 +235,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </main>
 
 <footer class="foot"><div class="wrap">
-  <div class="foot-note">Inspired by the teachings of Sri Sri Ravi Shankar. <a href="index.html#top">Home</a> · <a href="blog.html">Journal</a> · <a href="pilgrimage.html">Pilgrimage</a> · © 1999 Yaron Etzion</div>
+  <div class="foot-note">Inspired by the teachings of Sri Sri Ravi Shankar. <a href="index.html#top">Home</a> · <a href="blog.html">Journal</a> · <a href="pilgrimage.html">Pilgrimage</a> · <a href="privacy.html">Privacy</a> · © 1999 Yaron Etzion</div>
 </div></footer>
 
 <script>
