@@ -108,6 +108,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .foot-note a:hover{color:var(--accent)}
 
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#231a08;padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:100;font-weight:700}.skip-link:focus{left:0}@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+.cmt-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.cmt-form{margin-bottom:2.2rem}
+#comments-list{margin-top:.5rem}
+.cmt{border-top:1px solid var(--line);padding:1.1rem 0}
+.cmt .who{color:var(--ivory);font-weight:600;font-size:.98rem}
+.cmt .meta{color:var(--slate);font-size:.78rem;margin-inline-start:.55rem}
+.cmt .ctext{margin-top:.4rem;color:#dde1ee;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}
+.cmt-empty{color:var(--slate);padding:1rem 0}
 </style>
 </head>
 <body>
@@ -228,7 +237,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div class="comments">
       <h2>Walk with me, leave a word</h2>
       <div class="he-h" lang="he" dir="rtl">הצטרפו לשיחה, השאירו מילה</div>
-      <div id="comments-mount"></div>
+
+      <form class="ask cmt-form" id="cmtForm" hidden>
+        <div class="field">
+          <label for="cname">Your name <span class="he" lang="he">· השם שלכם</span></label>
+          <input id="cname" name="name" type="text" autocomplete="name" maxlength="80" required>
+        </div>
+        <div class="field">
+          <label for="cemail">Email (optional, never shown) <span class="he" lang="he">· אימייל (לא חובה, לא יוצג)</span></label>
+          <input id="cemail" name="email" type="email" autocomplete="email" maxlength="200">
+        </div>
+        <div class="field">
+          <label for="cbody">Your comment <span class="he" lang="he">· התגובה שלכם</span></label>
+          <textarea id="cbody" name="body" maxlength="5000" required></textarea>
+        </div>
+        <div class="cmt-hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="submit"><button class="btn btn-primary" type="submit" id="cbtn">Post comment · פרסום</button></div>
+      </form>
+      <div class="form-msg" id="cmtMsg" role="status" aria-live="polite" hidden></div>
+
+      <div id="comments-list" aria-live="polite"></div>
       <div class="comments-soon" id="commentsSoon">Public comments open here shortly. · מרחב התגובות הציבורי ייפתח כאן בקרוב.</div>
     </div>
   </div></section>
@@ -265,23 +293,51 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   });
 })();
 
-/* ---- Public comments (Cusdis). Set CUSDIS_APP_ID once to activate. ---- */
+/* ---- Public comments (Supabase). Paste SB_KEY to activate. ---- */
 (function(){
-  var CUSDIS_APP_ID=""; /* paste the Cusdis App ID here to turn comments on */
-  var mount=document.getElementById('comments-mount'), soon=document.getElementById('commentsSoon');
-  if(!CUSDIS_APP_ID){ return; } /* keep the friendly 'opening soon' note until activated */
-  soon.hidden=true;
-  var d=document.createElement('div');
-  d.id="cusdis_thread";
-  d.setAttribute('data-host','https://cusdis.com');
-  d.setAttribute('data-app-id',CUSDIS_APP_ID);
-  d.setAttribute('data-page-id','pilgrimage-invitation');
-  d.setAttribute('data-page-url','https://urthat.org/pilgrimage.html');
-  d.setAttribute('data-page-title','The Pilgrimage');
-  mount.appendChild(d);
-  var s=document.createElement('script');
-  s.async=true; s.defer=true; s.src="https://cusdis.com/js/cusdis.es.js";
-  document.body.appendChild(s);
+  var SB_URL="https://jrwxoiinqkijussjahtb.supabase.co";
+  var SB_KEY="sb_publishable_2ZeLYxO2Kzc_0q5wUs_vHA_wFz0F7Iw"; /* Supabase publishable key */
+  var PAGE="pilgrimage";
+  var listEl=document.getElementById('comments-list');
+  var soon=document.getElementById('commentsSoon');
+  var form=document.getElementById('cmtForm');
+  var msg=document.getElementById('cmtMsg');
+  var btn=document.getElementById('cbtn');
+  if(!SB_KEY){ return; } /* keep the 'opening soon' note until activated */
+  soon.hidden=true; if(form) form.hidden=false;
+  var headers={apikey:SB_KEY, Authorization:"Bearer "+SB_KEY};
+  function fmt(iso){ try{return new Date(iso).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});}catch(e){return '';} }
+  function render(rows){
+    listEl.textContent='';
+    if(!rows || !rows.length){ var e=document.createElement('div'); e.className='cmt-empty'; e.textContent='Be the first to leave a word. \u00b7 \u05d4\u05d9\u05d5 \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d9\u05dd \u05dc\u05d4\u05e9\u05d0\u05d9\u05e8 \u05de\u05d9\u05dc\u05d4.'; listEl.appendChild(e); return; }
+    rows.forEach(function(r){
+      var c=document.createElement('div'); c.className='cmt';
+      var head=document.createElement('div');
+      var who=document.createElement('span'); who.className='who'; who.setAttribute('dir','auto'); who.textContent=r.name||'';
+      var meta=document.createElement('span'); meta.className='meta'; meta.textContent=fmt(r.created_at);
+      head.appendChild(who); head.appendChild(meta);
+      var txt=document.createElement('div'); txt.className='ctext'; txt.setAttribute('dir','auto'); txt.textContent=r.body||'';
+      c.appendChild(head); c.appendChild(txt); listEl.appendChild(c);
+    });
+  }
+  function load(){
+    fetch(SB_URL+"/rest/v1/pilgrimage_comments?select=id,created_at,name,body&page_id=eq."+PAGE+"&approved=eq.true&order=created_at.desc&limit=300",{headers:headers})
+      .then(function(r){return r.json();}).then(render).catch(function(){});
+  }
+  if(form){ form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(form.website && form.website.value){ return; }
+    var name=form.name.value.trim(), email=form.email.value.trim(), body=form.body.value.trim();
+    if(!name || !body) return;
+    btn.disabled=true; btn.textContent="Posting\u2026";
+    fetch(SB_URL+"/rest/v1/pilgrimage_comments",{method:"POST",
+      headers:Object.assign({'Content-Type':'application/json',Prefer:'return=representation'},headers),
+      body:JSON.stringify({page_id:PAGE,name:name,email:email||null,body:body})})
+    .then(function(r){ if(!r.ok) throw new Error('post'); return r.json(); })
+    .then(function(){ form.reset(); msg.hidden=false; msg.className="form-msg ok"; msg.textContent="Thank you, your words are shared. \u00b7 \u05ea\u05d5\u05d3\u05d4, \u05d4\u05de\u05d9\u05dc\u05d9\u05dd \u05e9\u05dc\u05db\u05dd \u05e9\u05d5\u05ea\u05e4\u05d5."; btn.disabled=false; btn.textContent="Post comment \u00b7 \u05e4\u05e8\u05e1\u05d5\u05dd"; load(); })
+    .catch(function(){ msg.hidden=false; msg.className="form-msg err"; msg.textContent="Could not post that just now. Please try again."; btn.disabled=false; btn.textContent="Post comment \u00b7 \u05e4\u05e8\u05e1\u05d5\u05dd"; });
+  }); }
+  load();
 })();
 </script>
 </body>
