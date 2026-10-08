@@ -331,9 +331,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     if(!name || !body) return;
     btn.disabled=true; btn.textContent="Posting\u2026";
     fetch(SB_URL+"/rest/v1/pilgrimage_comments",{method:"POST",
-      headers:Object.assign({'Content-Type':'application/json',Prefer:'return=representation'},headers),
+      headers:Object.assign({'Content-Type':'application/json',Prefer:'return=minimal'},headers),
       body:JSON.stringify({page_id:PAGE,name:name,email:email||null,body:body})})
-    .then(function(r){ if(!r.ok) throw new Error('post'); return r.json(); })
+    .then(function(r){ if(!r.ok) throw new Error('post'); })
     .then(function(){ form.reset(); msg.hidden=false; msg.className="form-msg ok"; msg.textContent="Thank you, your words are shared. \u00b7 \u05ea\u05d5\u05d3\u05d4, \u05d4\u05de\u05d9\u05dc\u05d9\u05dd \u05e9\u05dc\u05db\u05dd \u05e9\u05d5\u05ea\u05e4\u05d5."; btn.disabled=false; btn.textContent="Post comment \u00b7 \u05e4\u05e8\u05e1\u05d5\u05dd"; load(); })
     .catch(function(){ msg.hidden=false; msg.className="form-msg err"; msg.textContent="Could not post that just now. Please try again."; btn.disabled=false; btn.textContent="Post comment \u00b7 \u05e4\u05e8\u05e1\u05d5\u05dd"; });
   }); }
