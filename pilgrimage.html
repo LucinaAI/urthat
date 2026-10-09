@@ -204,39 +204,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
   <hr class="rule">
 
-  <!-- ASK -->
-  <section class="sec" id="ask"><div class="wrap">
-    <div class="form-card">
-      <h2>Ask a question for the road</h2>
-      <div class="he-h" lang="he" dir="rtl">הניחו שאלה לדרך</div>
-      <p class="sub">Leave a question or a few words. I will carry it with me and reflect on it from the road, and share what comes.</p>
-      <p class="sub he" lang="he" dir="rtl">השאירו שאלה או כמה מילים. אשא אותן איתי, אתייחס אליהן מהדרך ואשתף במה שעולה.</p>
-      <form class="ask" id="askForm">
-        <div class="field">
-          <label for="qname">Your name <span class="he" lang="he">· השם שלכם</span></label>
-          <input id="qname" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="qemail">Email (optional, so I can reply) <span class="he" lang="he">· אימייל (לא חובה)</span></label>
-          <input id="qemail" name="email" type="email" autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="qtext">Your question <span class="he" lang="he">· השאלה שלכם</span></label>
-          <textarea id="qtext" name="question" required></textarea>
-        </div>
-        <div class="submit"><button class="btn btn-primary" type="submit" id="qbtn">Send · שליחה</button></div>
-      </form>
-      <div class="form-msg" id="formMsg" role="status" aria-live="polite" hidden></div>
-    </div>
-  </div></section>
-
-  <hr class="rule">
-
   <!-- COMMENTS -->
-  <section class="sec"><div class="wrap">
+  <section class="sec" id="ask"><div class="wrap">
     <div class="comments">
       <h2>Walk with me, leave a word</h2>
       <div class="he-h" lang="he" dir="rtl">הצטרפו לשיחה, השאירו מילה</div>
+      <p class="sub">Ask a question or leave a few words. I will read what comes in and reflect on it from the road.</p>
+      <p class="sub he" lang="he" dir="rtl">שאלו שאלה או השאירו כמה מילים. אקרא את מה שמגיע ואתייחס אליו מהדרך.</p>
 
       <form class="ask cmt-form" id="cmtForm" hidden>
         <div class="field">
@@ -267,32 +241,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div></footer>
 
 <script>
-/* ---- Ask a question form (FormSubmit AJAX to hello@urthat.org) ---- */
-(function(){
-  var f=document.getElementById('askForm'), msg=document.getElementById('formMsg'), btn=document.getElementById('qbtn');
-  if(!f) return;
-  var endpoint="https://formsubmit.co/ajax/"+["hello","urthat.org"].join("@");
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name=f.name.value.trim(), email=f.email.value.trim(), question=f.question.value.trim();
-    if(!name || !question) return;
-    btn.disabled=true; btn.textContent="Sending…";
-    fetch(endpoint,{method:"POST",headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify({name:name,email:email,question:question,_subject:"Pilgrimage question for the road",_template:"table"})})
-    .then(function(r){return r.json();})
-    .then(function(){
-      f.hidden=true;
-      msg.hidden=false; msg.className="form-msg ok";
-      msg.innerHTML="Thank you. Your question is with me now, and I will carry it on the road.<br><span style=\"direction:rtl;display:inline-block;font-family:var(--he-sans)\">תודה. שאלתכם איתי, ואשא אותה בדרך.</span>";
-    })
-    .catch(function(){
-      msg.hidden=false; msg.className="form-msg err";
-      msg.textContent="Something went wrong sending that. Please try again, or email hello@urthat.org.";
-      btn.disabled=false; btn.textContent="Send · שליחה";
-    });
-  });
-})();
-
 /* ---- Public comments (Supabase). Paste SB_KEY to activate. ---- */
 (function(){
   var SB_URL="https://jrwxoiinqkijussjahtb.supabase.co";
