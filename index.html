@@ -651,6 +651,7 @@ async function callClaude(system,messages,onText){
 }
 async function ask(){
   const q=input.value.trim();if(!q||busy)return;
+  const spokeInput=voiceAsk;voiceAsk=false;
   if(TTS)TTS.cancel();
   busy=true;sendBtn.disabled=true;input.value='';input.style.height='auto';
   thread.hidden=false;chipsEl.style.display='none';
@@ -668,7 +669,7 @@ async function ask(){
     const msgs=history.slice(-4).map(h=>({role:h.role,content:h.text}));
     msgs.push({role:'user',content:'Passages from the teaching:\n\n'+passages+'\n\n---\nMy question: '+q});
     const full=await callClaude(system,msgs,(t)=>{bb.innerHTML=fmt(t);down();});
-    bb.innerHTML=fmt(full||'');speakReply(full);
+    bb.innerHTML=fmt(full||'');speakReply(full,spokeInput);
     const uniq=[...new Set(hits.map(c=>SRC[c.s]))];
     if(uniq.length){const s=document.createElement('div');s.className='cmp-srcs';
       s.innerHTML=L.drawn+' '+uniq.map(u=>'<span>'+u+'</span>').join(' ');bb.parentElement.appendChild(s);}
@@ -681,7 +682,7 @@ async function ask(){
 const micBtn=document.getElementById('cmp-mic'),speakBtn=document.getElementById('cmp-speak'),speakLbl=document.getElementById('cmp-speak-lbl');
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition,TTS=('speechSynthesis' in window)?window.speechSynthesis:null;
 const VT={en:{mic:"Speak your question",stop:"Stop listening",read:"Read aloud",reading:"Reading aloud",bcp:"en-US"},he:{mic:"דבר את שאלתך",stop:"הפסק להקשיב",read:"הקראה",reading:"מקריא",bcp:"he-IL"}};
-let rec=null,listening=false,speakOn=false;
+let rec=null,listening=false,speakOn=false,voiceAsk=false;
 function vt(){return VT[lang]||VT.en;}
 function refreshVoiceLabels(){
   const v=vt();
@@ -701,7 +702,7 @@ if(SR&&micBtn){
       input.value=(finalText+interim).trim();input.style.height='auto';input.style.height=Math.min(input.scrollHeight,130)+'px';};
     rec.onerror=()=>{};
     rec.onend=()=>{listening=false;micBtn.classList.remove('rec');micBtn.setAttribute('aria-pressed','false');refreshVoiceLabels();
-      if(input.value.trim()&&finalText.trim())ask();};
+      if(input.value.trim()&&finalText.trim()){voiceAsk=true;ask();}};
     try{rec.start();}catch(e){}
   });
 }
@@ -710,8 +711,8 @@ if(TTS&&speakBtn){
   speakBtn.addEventListener('click',()=>{speakOn=!speakOn;speakBtn.classList.toggle('on',speakOn);speakBtn.setAttribute('aria-pressed',String(speakOn));
     if(!speakOn)TTS.cancel();refreshVoiceLabels();});
 }
-function speakReply(text){
-  if(!TTS||!speakOn||!text)return;
+function speakReply(text,force){
+  if(!TTS||!text)return;if(!speakOn&&!force)return;
   const plain=text.replace(/^>\s?/gm,'').replace(/[*_`#]/g,'').replace(/\s+/g,' ').trim();if(!plain)return;
   TTS.cancel();const u=new SpeechSynthesisUtterance(plain);u.lang=vt().bcp;u.rate=.95;
   const vs=TTS.getVoices();const v=vs.find(x=>x.lang===u.lang)||vs.find(x=>x.lang&&x.lang.toLowerCase().startsWith(u.lang.slice(0,2)));if(v)u.voice=v;
