@@ -204,6 +204,63 @@
   @keyframes pulseBtn{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.05)}}
 
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#231a08;padding:.6rem 1rem;border-radius:0 0 8px 0;z-index:100;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+
+  /* ---- White Path Companion ---- */
+  .cmp-head{max-width:46ch;margin:0 auto 1.8rem;text-align:center}
+  .cmp-head h2{font-family:"Fraunces",Georgia,serif;font-size:clamp(2rem,5vw,3rem);margin-top:.7rem;font-weight:300;line-height:1.1}
+  .cmp-head p{margin-top:.9rem;color:var(--ivory-dim);font-weight:300;font-size:1.06rem}
+  .cmp-box{max-width:720px;margin:0 auto;background:linear-gradient(180deg,var(--ground-2),transparent);
+    border:1px solid var(--line-2);border-radius:22px;padding:1.4rem;box-shadow:0 30px 70px -40px rgba(0,0,0,.6)}
+  .cmp-top{display:flex;justify-content:flex-end;align-items:center;gap:.6rem;margin-bottom:.6rem}
+  .cmp-lang{display:flex;gap:.3rem}
+  .cmp-lang button{background:none;border:1px solid var(--line-2);color:var(--ivory-dim);font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:.76rem;padding:.3rem .6rem;border-radius:999px;cursor:pointer;transition:.2s}
+  .cmp-lang button:hover{border-color:var(--accent);color:var(--accent)}
+  .cmp-lang button.on{background:var(--accent);color:#1a1205;border-color:var(--accent)}
+  .cmp-thread{display:flex;flex-direction:column;gap:1.1rem;max-height:52vh;overflow-y:auto;margin-bottom:1rem;padding-right:.3rem}
+  .cmp-msg{display:flex;flex-direction:column}
+  .cmp-msg .who{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-dim);opacity:.8;margin-bottom:.35rem}
+  .cmp-msg.user{align-items:flex-end}
+  .cmp-msg.user .b{background:var(--ground-2);border:1px solid var(--line-2);border-radius:14px 14px 4px 14px;padding:.7rem 1rem;max-width:85%}
+  .cmp-msg.bot .b{font-size:1.02rem;line-height:1.7}
+  .cmp-msg .b p{margin:0 0 .7rem}.cmp-msg .b p:last-child{margin:0}
+  .cmp-msg .b em{font-style:italic;color:var(--accent-soft)}
+  .cmp-msg .b .q{border-left:2px solid var(--accent);padding-left:.9rem;margin:.6rem 0;font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--ivory-dim)}
+  .cmp-srcs{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem;font-size:.7rem;color:var(--ivory-dim);opacity:.85;align-items:center}
+  .cmp-srcs span{border:1px solid var(--line-2);border-radius:999px;padding:.15rem .55rem}
+  .cmp-think{color:var(--ivory-dim);font-style:italic;font-family:"Fraunces",Georgia,serif}
+  .cmp-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+  .cmp-chips button{border:1px solid var(--line-2);background:var(--ground);color:var(--ivory-dim);
+    border-radius:999px;padding:.5rem .9rem;font-size:.85rem;cursor:pointer;transition:.2s;font-family:"Plus Jakarta Sans",sans-serif}
+  .cmp-chips button:hover{border-color:var(--accent);color:var(--accent)}
+  .cmp-composer{display:flex;gap:.5rem;align-items:flex-end;background:var(--ground);
+    border:1px solid var(--line-2);border-radius:16px;padding:.45rem .45rem .45rem 1rem}
+  .cmp-composer:focus-within{border-color:var(--accent)}
+  .cmp-composer textarea{flex:1;background:none;border:0;color:var(--ivory);font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:1rem;resize:none;outline:none;max-height:130px;line-height:1.5;padding:.4rem 0}
+  .cmp-composer textarea::placeholder{color:var(--ivory-dim);opacity:.7}
+  .cmp-send{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:var(--accent);color:#1a1205;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+  .cmp-send:hover{background:var(--accent-soft)}.cmp-send:disabled{opacity:.4;cursor:default}
+  .cmp-send svg{width:18px;height:18px}
+  .cmp-mic{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:none;color:var(--ivory-dim);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+  .cmp-mic[hidden],.cmp-speak[hidden]{display:none}
+  .cmp-mic:hover{border-color:var(--accent);color:var(--accent)}
+  .cmp-mic svg{width:18px;height:18px}
+  .cmp-mic.rec{background:var(--accent);color:#1a1205;border-color:var(--accent);animation:cmpPulse 1.4s ease-in-out infinite}
+  @keyframes cmpPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,190,90,.45)}50%{box-shadow:0 0 0 9px rgba(255,190,90,0)}}
+  .cmp-speak{display:inline-flex;align-items:center;gap:.4rem;background:none;border:1px solid var(--line-2);color:var(--ivory-dim);
+    font-family:"Plus Jakarta Sans",sans-serif;font-size:.76rem;padding:.3rem .65rem;border-radius:999px;cursor:pointer;transition:.2s}
+  .cmp-speak svg{width:14px;height:14px}
+  .cmp-speak:hover{border-color:var(--accent);color:var(--accent)}
+  .cmp-speak.on{background:var(--accent);color:#1a1205;border-color:var(--accent)}
+  @media (prefers-reduced-motion:reduce){.cmp-mic.rec{animation:none}}
+  .cmp-disc{text-align:center;color:var(--ivory-dim);opacity:.7;font-size:.72rem;margin-top:.8rem;font-weight:300}
+  .cmp-box[dir="rtl"] .cmp-top{justify-content:flex-start}
+  .cmp-box[dir="rtl"] .cmp-msg.user{align-items:flex-start}
+  .cmp-box[dir="rtl"] .cmp-msg.user .b{border-radius:14px 14px 14px 4px}
+  .cmp-box[dir="rtl"] .cmp-msg .b .q{border-left:0;border-right:2px solid var(--accent);padding-left:0;padding-right:.9rem}
 </style>
 </head>
 <body>
@@ -221,6 +278,7 @@
   <a class="brand" href="#top"><span class="mk"></span> You Are That</a>
   <nav class="nav-links" aria-label="Primary">
     <a href="#teachings">Teachings</a>
+    <a href="#companion">Companion</a>
     <a href="#courses">Courses</a>
     <a href="#about">About</a>
     <a href="#books">Books</a>
@@ -273,6 +331,39 @@
 </div></section>
 
 <hr class="rule">
+
+<!-- WHITE PATH COMPANION -->
+<section class="sec" id="companion"><div class="wrap">
+  <div class="cmp-head">
+    <span class="eyebrow">Ask Anything</span>
+    <h2>The White Path Companion</h2>
+    <p>A living companion that answers from Yaron's books and talks — about the path, the journey, or your own life. In English or Hebrew.</p>
+  </div>
+  <div class="cmp-box" id="cmp-box">
+    <div class="cmp-top">
+      <button class="cmp-speak" id="cmp-speak" type="button" aria-pressed="false" title="Read answers aloud" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        <span id="cmp-speak-lbl">Read aloud</span>
+      </button>
+      <div class="cmp-lang" id="cmp-lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="he">עברית</button>
+      </div>
+    </div>
+    <div class="cmp-thread" id="cmp-thread" hidden></div>
+    <div class="cmp-chips" id="cmp-chips"></div>
+    <div class="cmp-composer">
+      <textarea id="cmp-input" rows="1" placeholder="Ask the companion…" autocomplete="off"></textarea>
+      <button class="cmp-mic" id="cmp-mic" type="button" aria-label="Speak your question" aria-pressed="false" title="Speak your question" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+      </button>
+      <button class="cmp-send" id="cmp-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+    <p class="cmp-disc" id="cmp-disc">A companion drawing on Yaron's teachings — not Yaron himself, nor a substitute for a therapist or medical care. In crisis, please reach out to someone you trust or a local helpline.</p>
+  </div>
+</div></section>
 
 <!-- TEACHINGS / COURSES -->
 <section class="sec" id="courses"><div class="wrap">
@@ -507,6 +598,132 @@
     if(p&&p.then){ p.then(function(){ showBtn(); }).catch(function(){ hideBtn(); }); }
     else { showBtn(); }
   }
+})();
+</script>
+<script>
+/* ===== White Path Companion ===== */
+(function(){
+const RELAY_URL = "https://whitepath-companion.yetzion.workers.dev";
+const SRC={Wave:"When the Wave Remembers the Ocean",Available:"Available to Love",Talks:"Yaron's talks"};
+const STOP=new Set("a an and are as at be but by for from has have i in is it its of on or that the their them they this to was we were what when which who with you your about how why can could would should do does our us me my if not no yes so just also more most very into over under again".split(" "));
+const S={en:{dir:"ltr",ph:"Ask the companion…",you:"You",bot:"White Path Companion",drawn:"Drawn from",think:"reflecting",
+    disc:"A companion drawing on Yaron's teachings — not Yaron himself, nor a substitute for a therapist or medical care. In crisis, please reach out to someone you trust or a local helpline.",
+    soon:"The companion is being connected — it will be live here very soon.",err:"Something interrupted the reflection. Please try again.",
+    chips:["What is the White Path?","How do I work with fear?","What does it mean to surrender?","I feel stuck. Where do I begin?"]},
+  he:{dir:"rtl",ph:"שאל את המלווה…",you:"אתה",bot:"מלווה הדרך הלבנה",drawn:"מתוך",think:"מהרהר",
+    disc:"מלווה המבוסס על תורתו של ירון — אינו ירון עצמו, ואינו תחליף למטפל או לייעוץ רפואי. במצוקה, אנא פנה לאדם קרוב או לקו סיוע.",
+    soon:"המלווה בתהליך חיבור — יהיה זמין כאן בקרוב מאוד.",err:"משהו קטע את ההרהור. אנא נסה שוב.",
+    chips:["מהי הדרך הלבנה?","איך עובדים עם פחד?","מה פירוש להיכנע ולהרפות?","אני תקוע. מאיפה מתחילים?"]}};
+let lang="en",L=S.en;
+const box=document.getElementById('cmp-box'),thread=document.getElementById('cmp-thread'),
+  chipsEl=document.getElementById('cmp-chips'),input=document.getElementById('cmp-input'),
+  sendBtn=document.getElementById('cmp-send'),disc=document.getElementById('cmp-disc');
+if(!box) return;
+let CORPUS=null,DF={},N=0,busy=false,history=[];
+const tok=s=>(s.toLowerCase().match(/[a-z0-9']+/g)||[]).filter(w=>w.length>2&&!STOP.has(w));
+const isHe=s=>/[֐-׿]/.test(s);
+async function loadCorpus(){ if(CORPUS)return;
+  const r=await fetch('corpus.json'); CORPUS=await r.json(); N=CORPUS.length;
+  for(const c of CORPUS){c._tf={};for(const w of tok(c.t)){c._tf[w]=(c._tf[w]||0)+1;}for(const w in c._tf)DF[w]=(DF[w]||0)+1;}
+}
+const idf=w=>Math.log((N+1)/((DF[w]||0)+1))+1;
+function retrieve(terms,k=8){const q=[...new Set(terms)];
+  return CORPUS.map(c=>{let s=0;for(const w of q)if(c._tf[w])s+=c._tf[w]*idf(w);return{c,s};})
+    .filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,k).map(x=>x.c);}
+function renderChips(){chipsEl.innerHTML="";L.chips.forEach(q=>{const b=document.createElement('button');b.textContent=q;b.onclick=()=>{input.value=q;ask();};chipsEl.appendChild(b);});}
+function setLang(x){lang=x;L=S[x];box.setAttribute('dir',L.dir);input.placeholder=L.ph;disc.textContent=L.disc;
+  document.querySelectorAll('#cmp-lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===x));renderChips();}
+document.querySelectorAll('#cmp-lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
+renderChips();
+input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,130)+'px';});
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask();}});
+sendBtn.onclick=ask;
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function fmt(t){return t.split(/\n\n+/).map(p=>{p=p.trim();if(!p)return'';let h=esc(p).replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  if(/^&gt;/.test(h))return'<div class="q">'+h.replace(/^&gt;\s?/,'')+'</div>';return'<p>'+h.replace(/\n/g,'<br>')+'</p>';}).join('');}
+function addMsg(who,cls){const m=document.createElement('div');m.className='cmp-msg '+cls;
+  m.innerHTML='<div class="who"></div><div class="b"></div>';m.querySelector('.who').textContent=who;thread.appendChild(m);down();return m.querySelector('.b');}
+function down(){thread.scrollTop=thread.scrollHeight;}
+async function callClaude(system,messages,onText){
+  const res=await fetch(RELAY_URL,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({system,messages})});
+  if(!res.ok||!res.body) throw new Error('relay');
+  const reader=res.body.getReader(),dec=new TextDecoder();let buf='',full='';
+  while(true){const{done,value}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});
+    let i;while((i=buf.indexOf('\n'))>=0){const line=buf.slice(0,i);buf=buf.slice(i+1);
+      if(line.startsWith('data:')){const d=line.slice(5).trim();if(!d||d==='[DONE]')continue;
+        try{const j=JSON.parse(d);if(j.type==='content_block_delta'&&j.delta&&j.delta.text){full+=j.delta.text;onText&&onText(full);}}catch(e){}}}}
+  return full;
+}
+async function ask(){
+  const q=input.value.trim();if(!q||busy)return;
+  if(TTS)TTS.cancel();
+  busy=true;sendBtn.disabled=true;input.value='';input.style.height='auto';
+  thread.hidden=false;chipsEl.style.display='none';
+  addMsg(L.you,'user').innerHTML='<p>'+esc(q)+'</p>';
+  const bb=addMsg(L.bot,'bot');bb.innerHTML='<span class="cmp-think">'+L.think+'…</span>';
+  try{
+    await loadCorpus();
+    let terms;
+    if(isHe(q)){const kw=await callClaude("Extract 3-8 English keywords capturing the spiritual topic. Reply with ONLY space-separated keywords.",[{role:'user',content:q}]);terms=tok(kw);}
+    else terms=tok(q);
+    if(!terms.length)terms=tok(q);
+    const hits=retrieve(terms,8);
+    const passages=hits.map(c=>'[Source: '+SRC[c.s]+']\n'+c.t).join('\n\n---\n\n');
+    const system="You are the White Path Companion — a warm, spacious guide for seekers on the White Path, the nondual path of awakening taught by Yaron Etzion (its founder, in the lineage of Sri Sri Ravi Shankar).\n\nAnswer ONLY from the passages the person gives you below their question. These passages ARE the teaching. If they do not address the question, say gently that this isn't something the teaching speaks to directly here, and offer what is closest — never invent teachings, facts, or quotes.\n\nVOICE: Speak as a companion ON the path, never as Yaron himself (\"the teaching points to…\", \"Yaron often says…\", \"on the White Path…\"). Warm, unhurried, plain. Short paragraphs. Meet the person exactly where they are. When a line from the passages lands, you may offer it on its own line beginning with \"> \". Converse, don't lecture.\n\nCARE: If the person shares real distress — grief, despair, hopelessness, thoughts of self-harm — respond first with warmth and presence, offer the teaching's gentlest perspective, and gently encourage reaching out to someone they trust, a professional, or a local helpline. You are a companion drawing on Yaron's teaching, not a therapist or medical advice.\n\nLANGUAGE: Reply in the SAME language the person used (English or Hebrew), naturally. Keep replies focused — usually 2–5 short paragraphs.";
+    const msgs=history.slice(-4).map(h=>({role:h.role,content:h.text}));
+    msgs.push({role:'user',content:'Passages from the teaching:\n\n'+passages+'\n\n---\nMy question: '+q});
+    const full=await callClaude(system,msgs,(t)=>{bb.innerHTML=fmt(t);down();});
+    bb.innerHTML=fmt(full||'');speakReply(full);
+    const uniq=[...new Set(hits.map(c=>SRC[c.s]))];
+    if(uniq.length){const s=document.createElement('div');s.className='cmp-srcs';
+      s.innerHTML=L.drawn+' '+uniq.map(u=>'<span>'+u+'</span>').join(' ');bb.parentElement.appendChild(s);}
+    history.push({role:'user',text:q},{role:'assistant',text:full});
+  }catch(e){bb.innerHTML='<p>'+L.err+'</p>';}
+  busy=false;sendBtn.disabled=false;down();
+}
+
+/* ---- voice: mic dictation + optional read-aloud (free, browser built-in) ---- */
+const micBtn=document.getElementById('cmp-mic'),speakBtn=document.getElementById('cmp-speak'),speakLbl=document.getElementById('cmp-speak-lbl');
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition,TTS=('speechSynthesis' in window)?window.speechSynthesis:null;
+const VT={en:{mic:"Speak your question",stop:"Stop listening",read:"Read aloud",reading:"Reading aloud",bcp:"en-US"},he:{mic:"דבר את שאלתך",stop:"הפסק להקשיב",read:"הקראה",reading:"מקריא",bcp:"he-IL"}};
+let rec=null,listening=false,speakOn=false;
+function vt(){return VT[lang]||VT.en;}
+function refreshVoiceLabels(){
+  const v=vt();
+  if(micBtn){micBtn.title=micBtn.ariaLabel=listening?v.stop:v.mic;micBtn.setAttribute('aria-label',listening?v.stop:v.mic);}
+  if(speakLbl)speakLbl.textContent=speakOn?v.reading:v.read;
+}
+if(SR&&micBtn){
+  micBtn.hidden=false;
+  micBtn.addEventListener('click',()=>{
+    if(listening){try{rec.stop();}catch(e){}return;}
+    if(TTS)TTS.cancel();
+    rec=new SR();rec.lang=vt().bcp;rec.interimResults=true;rec.continuous=false;
+    let finalText='';
+    rec.onstart=()=>{listening=true;micBtn.classList.add('rec');micBtn.setAttribute('aria-pressed','true');refreshVoiceLabels();};
+    rec.onresult=(ev)=>{let interim='';finalText='';
+      for(let i=0;i<ev.results.length;i++){const r=ev.results[i];if(r.isFinal)finalText+=r[0].transcript;else interim+=r[0].transcript;}
+      input.value=(finalText+interim).trim();input.style.height='auto';input.style.height=Math.min(input.scrollHeight,130)+'px';};
+    rec.onerror=()=>{};
+    rec.onend=()=>{listening=false;micBtn.classList.remove('rec');micBtn.setAttribute('aria-pressed','false');refreshVoiceLabels();
+      if(input.value.trim()&&finalText.trim())ask();};
+    try{rec.start();}catch(e){}
+  });
+}
+if(TTS&&speakBtn){
+  speakBtn.hidden=false;
+  speakBtn.addEventListener('click',()=>{speakOn=!speakOn;speakBtn.classList.toggle('on',speakOn);speakBtn.setAttribute('aria-pressed',String(speakOn));
+    if(!speakOn)TTS.cancel();refreshVoiceLabels();});
+}
+function speakReply(text){
+  if(!TTS||!speakOn||!text)return;
+  const plain=text.replace(/^>\s?/gm,'').replace(/[*_`#]/g,'').replace(/\s+/g,' ').trim();if(!plain)return;
+  TTS.cancel();const u=new SpeechSynthesisUtterance(plain);u.lang=vt().bcp;u.rate=.95;
+  const vs=TTS.getVoices();const v=vs.find(x=>x.lang===u.lang)||vs.find(x=>x.lang&&x.lang.toLowerCase().startsWith(u.lang.slice(0,2)));if(v)u.voice=v;
+  TTS.speak(u);
+}
+document.querySelectorAll('#cmp-lang button').forEach(b=>b.addEventListener('click',()=>{setTimeout(refreshVoiceLabels,0);if(listening){try{rec.stop();}catch(e){}}if(TTS)TTS.cancel();}));
+refreshVoiceLabels();
 })();
 </script>
 </body>
